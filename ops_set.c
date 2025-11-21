@@ -6,12 +6,12 @@
 void op_set(mongoc_collection_t *collection, const char *key, const char *value) {
     bson_error_t error; // the standard place to catch errors from the MongoDB driver
     
-    // --- Step 1: Define the Query (The Filter) ---
+    // --- Step 1: Define the Query  ---
     // we build a BSON filter to tell MongoDB which document we're looking for.
     // this query is simple: "find the document where the 'key' field equals our input key"
     bson_t *query = BCON_NEW("key", BCON_UTF8(key));
 
-    // --- Step 2: Define the Update (The Change) ---
+    // --- Step 2: Define the Update ) ---
     // we build another BSON document specifying *what* change to make.
     // the "$set" operator means "update or set these fields."
     // we only want to set the 'value' field to the new value.
@@ -19,7 +19,7 @@ void op_set(mongoc_collection_t *collection, const char *key, const char *value)
         "value", BCON_UTF8(value)
     , "}");
 
-    // --- Step 3: Set the Options (The Magic) ---
+    // --- Step 3: Set the Options ---
     // this BSON document holds extra options for the operation.
     // setting "upsert" to true is the key: 
     // - if the 'query' finds the document, it updates it.
@@ -40,7 +40,7 @@ void op_set(mongoc_collection_t *collection, const char *key, const char *value)
     }
     
     // --- Cleanup ---
-    // always gotta clean up the BSON documents created locally
+    // always clean up the BSON documents created locally
     bson_destroy(query);
     bson_destroy(update);
     bson_destroy(opts);
