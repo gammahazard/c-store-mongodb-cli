@@ -51,7 +51,7 @@ gcc -o mongo_store main.c ops_set.c ops_get.c ops_del.c ops_all.c $(pkg-config -
     ```
 
 3.  **Commands**:
-    ```text
+    ```bash
    local-db> SET user gammahazard
 saved/updated: { user: gammahazard }
 
