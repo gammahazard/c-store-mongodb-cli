@@ -52,24 +52,24 @@ gcc -o mongo_store main.c ops_set.c ops_get.c ops_del.c ops_all.c $(pkg-config -
 
 3.  **Commands**:
     ```text
-    local-db> SET user gammahazard
-    saved: { user: gammahazard }
+   local-db> SET user gammahazard
+saved/updated: { user: gammahazard }
 
-    local-db> GET user
-    { ... "key": "user", "value": "gammahazard" }
+local-db> GET user
+{ ... "key": "user", "value": "gammahazard" }
 
-    local-db> DEL user
-    deleted user
+local-db> DEL user gammahazard
+Deleted: { user: gammahazard }
 
-    local-db> ALL
-    (Lists all entries)
+local-db> ALL
+(Lists all entries)
     ```
 
 ## 📂 File Structure
 
 * `main.c` - The Entry Point (UI & Routing Logic).
 * `db_ops.h` - Header file defining the function prototypes.
-* `ops_set.c` - Implementation for inserting data.
+* `ops_set.c` - Implementation for upserting (saving/updating) data.
 * `ops_get.c` - Implementation for querying data.
 * `ops_del.c` - Implementation for deleting data.
 * `ops_all.c` - Implementation for listing collections.
