@@ -51,18 +51,18 @@ gcc -o mongo_store main.c ops_set.c ops_get.c ops_del.c ops_all.c $(pkg-config -
     ```
 
 3.  **Commands**:
-    ```bash
-   local-db> SET user gammahazard
-saved/updated: { user: gammahazard }
+    ```text
+    local-db> SET user gammahazard
+    saved/updated: { user: gammahazard }
 
-local-db> GET user
-{ ... "key": "user", "value": "gammahazard" }
+    local-db> GET user
+    { ... "key": "user", "value": "gammahazard" }
 
-local-db> DEL user gammahazard
-Deleted: { user: gammahazard }
+    local-db> DEL user gammahazard
+    Deleted: { user: gammahazard }
 
-local-db> ALL
-(Lists all entries)
+    local-db> ALL
+    (Lists all entries)
     ```
 
 ## 📂 File Structure
